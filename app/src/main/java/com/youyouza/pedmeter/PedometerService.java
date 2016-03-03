@@ -58,7 +58,7 @@ public class PedometerService extends Service implements SensorEventListener {
     private static final int between=8;
 
     private long count=0L;
-    private double valueArray[]=new double[CalAmount];
+    private double valueArray[]=new double[CalAmount*2];
 
     private int index=0;
 
@@ -152,6 +152,31 @@ public class PedometerService extends Service implements SensorEventListener {
     }
 
 
+    public synchronized  long addCount(){
+
+        count=count+1;
+        return count;
+
+    }
+
+
+    public  synchronized void moveArray(int length){
+
+
+        if(length==0) length=CalAmount;
+
+
+        for (int i = length; i <CalAmount*2; i++) {
+            valueArray[i - length] = valueArray[i];
+        }
+
+
+        index=index-length;
+
+
+
+    }
+
     @Override
     public void onCreate() {
         super.onCreate();
@@ -180,25 +205,12 @@ public class PedometerService extends Service implements SensorEventListener {
         try {
 
             String state = Environment.getExternalStorageState();
-//            File path = Environment.getExternalStoragePublicDirectory(
-//                   Environment.DIRECTORY_MOVIES);
-//            File file = new File(path, "/" + fileName);
-
-//            FileOutputStream fos = new FileOutputStream(file,false);
-
-//            fos.write(data.getBytes());
-
-//            fos.close();
-
-//            Log.i("file road",file.getPath());
-//            return true;
             if(state.equals(Environment.MEDIA_MOUNTED)){
 
                 File ext = Environment.getExternalStorageDirectory();
 
                 FileOutputStream fos = new FileOutputStream(new File(ext,fileName),true);
 
-                if(fos==null) Log.i("wirte something ","failed");
 
                 fos.write(data.getBytes());
 
@@ -208,11 +220,6 @@ public class PedometerService extends Service implements SensorEventListener {
 //                Log.i("filePath:",ext.getPath());
                 return true;
 
-            }else{
-
-//                Log.i("file", "not have SD card");
-
-
             }
 
             return false;
@@ -232,39 +239,6 @@ public class PedometerService extends Service implements SensorEventListener {
     }
 
 
-
-
-    public static String readSD(){
-
-        try {
-
-            String state = Environment.getExternalStorageState();
-
-            if(state.equals(Environment.MEDIA_MOUNTED)){
-
-                File ext = Environment.getExternalStorageDirectory();
-
-                BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(ext.getPath()+"/Data.txt")));
-
-                String line = br.readLine();
-
-                br.close();
-
-                return line;
-
-            }
-
-        } catch (Exception e) {
-
-            // TODO Auto-generated catch block
-
-            e.printStackTrace();
-
-        }
-
-        return null;
-
-    }
 
 
     @Override
@@ -298,9 +272,6 @@ public class PedometerService extends Service implements SensorEventListener {
         message1+=z+"  ";
         message1+=gravityOrign+"  ";
 
-//        message1+="\n";
-//
-//        writeSD(message1,"DataOrign.txt");
 
         addOfDirec(x,y,z);
 
@@ -318,151 +289,133 @@ public class PedometerService extends Service implements SensorEventListener {
         message+=y+"  ";
         message+=z+"  ";
         message+=gravity+"  ";
-//        message+="\n";
 
-//        writeSD(message,"Data.txt");
 
         if(beforeAccle>1.0)
 
             gravity=pinghua(beforeAccle, gravity);
 
+        synchronized (this) {
 
-        valueArray[index++]=gravity;
+            valueArray[index++] = gravity;
+            beforeAccle=gravity;
 
-        beforeAccle=gravity;
-
+        }
 
 //        Log.v("service", "获取到新的更新:" + message);
 
-        double maxXrate=-1.0; //保存最大的相似度
+
+        final double maxXrate=0.0; //保存最大的相似度
         int Length=0;     //保存此时的更新长度
-        double maxARate=-1.0; //保存此时的标准差
+        final double maxARate=0.0; //保存此时的标准差
+
 
         if(index==CalAmount){
 //            Log.i("service", "可以进行一次计算:");
 
 
+  Thread calc=new Thread(){
 
-            for(int start=0;start<=calTimes;start++){
+     @Override
+     public void run() {
 
-                double sumAvalue=0.0;
-                double sumBvalue=0.0;
-                for(int copyIndex=0;copyIndex<start+between;copyIndex++){
-                    sumAvalue+=valueArray[copyIndex];
-                    sumBvalue+=valueArray[copyIndex+start+between];
-                }
-
-                sumAvalue=sumAvalue/(start+between);
-                sumBvalue=sumBvalue/(start+between);
+         double maxXrate=0.3; //保存最大的相似度
+         int Length=0;     //保存此时的更新长度
+         double maxARate=1.0; //保存此时的标准差
 
 
+         for(int start=0;start<=calTimes;start++){
 
-                double sumTogether=0.0;
-                double rouA=0.0;
-                double rouB=0.0;
+             double sumAvalue=0.0;
+             double sumBvalue=0.0;
+             for(int copyIndex=0;copyIndex<start+between;copyIndex++){
+                 sumAvalue+=valueArray[copyIndex];
+                 sumBvalue+=valueArray[copyIndex+start+between];
+             }
 
-                for(int copyIndex=0;copyIndex<start+between;copyIndex++){
-                    double temp1=valueArray[copyIndex]-sumAvalue;
-                    double temp2=valueArray[copyIndex+start+between]-sumBvalue;
-                    sumTogether=sumTogether+temp1*temp2;
-                    rouA=rouA+temp1*temp1;
-                    rouB=rouB+temp2*temp2;
-                }
+             sumAvalue=sumAvalue/(start+between);
+             sumBvalue=sumBvalue/(start+between);
 
-                double tempA=rouA;
-                double tempB=rouB;
+
+
+             double sumTogether=0.0;
+             double rouA=0.0;
+             double rouB=0.0;
+
+             for(int copyIndex=0;copyIndex<start+between;copyIndex++){
+                 double temp1=valueArray[copyIndex]-sumAvalue;
+                 double temp2=valueArray[copyIndex+start+between]-sumBvalue;
+                 sumTogether=sumTogether+temp1*temp2;
+                 rouA=rouA+temp1*temp1;
+                 rouB=rouB+temp2*temp2;
+             }
+
+             double tempA=rouA;
+             double tempB=rouB;
 
              rouA=Math.sqrt(rouA/(start+between));
-			 rouB=Math.sqrt(rouB/(start+between));
+             rouB=Math.sqrt(rouB/(start+between));
 
-                double Xrate=sumTogether/(rouA*rouB*(start+between));
+             double Xrate=sumTogether/(rouA*rouB*(start+between));
 
-                if(Xrate>maxXrate){
-                    maxARate=tempA;
-                    Length=start+between;
-                    maxXrate=Xrate;
-                }
+             if(Xrate>maxXrate){
+                 maxARate=tempA;
+                 Length=start+between;
+                 maxXrate=Xrate;
+             }
 
-            }
+         }
 
-
-
-//            Log.i("已经计算完毕：", "此时的标准差是：" + maxARate + "  以及相似系数为： " + maxXrate);
-
-
-//            writeSD(maxARate + " " + maxXrate + "\n", "Calc.txt");
-
-
-//
-//            Intent intent=new Intent();
-//
-//            intent.setAction(BROADCAST_ACTION_DATA);
-//
-//
-//            intent.putExtra(stringExtraCalc, Length + "此时的标准差是：" + maxARate + " \n 以及相似系数为： " + maxXrate + "  " + "\n" + df.format(new Date()));
-//
-//            sendOrderedBroadcast(intent, null);
-
-            if(Length==0) Length=CalAmount;
-
-
-
-            for(int i=Length;i<CalAmount;i++){
-                valueArray[i-Length]=valueArray[i];
-            }
-
-
-            index=Length;
+         moveArray(Length);
 
 //            Log.i("广播发送完成：", "----------------end----------------------");
 
-            if((maxARate>=3.0)&&(maxXrate>=0.45)){
+         long tempcount=count;
 
-                synchronized(this){
+         if((maxARate>=3.0)&&(maxXrate>=0.45)){
 
-                    count++;
-                }
-
-
-//                更新ui
-
-//                Log.i("已经可能为一步，进行广播：", "----------------send----------------------"+count);
-//                Intent intent1=new Intent();
-//                intent1.setAction(BROADCAST_ACTION_PEDEMETER);
-//
-//                intent1.putExtra(stringExtraPedemeter, count+"");
-//
-//                sendOrderedBroadcast(intent1, null);
+             tempcount=addCount();
 
 
+         }
 
-            }else {
+         Intent intent=new Intent();
 
-                //                更新ui
-//                if(onStepChangedListener!=null){
-//
-//                    onStepChangedListener.onStepChanged(message+"");
-//
-//                    Log.i("service","进行数据的记录，结果为： "+message);
-//
-//                }
+         intent.setAction(BROADCAST_ACTION_PEDEMETER);
 
-            }
+
+         intent.putExtra(stringExtraPedemeter, Length + "\n 此时的标准差是：" + maxARate + " \n 以及相似系数为： " + maxXrate + "  " + "\n"
+                 + tempcount + "\n" + df.format(new Date()));
+
+         sendOrderedBroadcast(intent, null);
+
+
+     }
+
+
+  };
+
+            calc.start();
+
+
+
+
+
+
 
 
         }
 
 
 
-        index=index%CalAmount;
+        index=index%(CalAmount*2);
 
 
-        Thread t = new MessageSendThread(
-                Length + "\n 此时的标准差是：" + maxARate + " \n 以及相似系数为： " + maxXrate + "  " + "\n"
-                        + count + "\n" + df.format(new Date())
-                ,message + message1 + maxARate + " " + maxXrate + "\n");
+        Thread t=new WriteMessage(message1+message+maxARate+maxXrate+" \n");
 
         t.start();
+
+
 
     }
 
@@ -478,31 +431,44 @@ public class PedometerService extends Service implements SensorEventListener {
     }
 
 
-    class MessageSendThread extends Thread{
+//    class MessageSendThread extends Thread{
+//
+//        private String messageBrocast="";
+//
+//    public MessageSendThread(String messageBrocast){
+//        this.messageBrocast+=messageBrocast;
+//
+//
+//    }
+//        public void run() {
+//            Intent intent=new Intent();
+//
+//            intent.setAction(BROADCAST_ACTION_PEDEMETER);
+//
+//
+//            intent.putExtra(stringExtraPedemeter, messageBrocast);
+//
+//            sendOrderedBroadcast(intent, null);
+//
+//        }
+//
+//
+//    }
 
-        private String messageWrite="";
-        private String messageBrocast="";
 
-    public MessageSendThread(String messageBrocast,String messageWrite){
-        this.messageWrite+=messageWrite;
-        this.messageBrocast+=messageBrocast;
+    class WriteMessage extends Thread{
 
+        String message="";
+        public WriteMessage(String message){
 
-    }
-        public void run() {
-            Intent intent=new Intent();
-
-            intent.setAction(BROADCAST_ACTION_PEDEMETER);
-
-
-            intent.putExtra(stringExtraPedemeter,messageBrocast);
-
-            sendOrderedBroadcast(intent, null);
-
-            writeSD(messageWrite,"Data.txt");
+            this.message+=message;
         }
+        public void run(){
+
+            writeSD(message,"Data.txt");
 
 
+        }
     }
 
 
