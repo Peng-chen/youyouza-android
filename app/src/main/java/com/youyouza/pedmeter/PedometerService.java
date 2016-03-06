@@ -21,9 +21,8 @@ import java.io.InputStreamReader;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-/**
+/*
  * Created by youyouza on 16-1-6.
- *
  */
 
 /***
@@ -45,88 +44,79 @@ public class PedometerService extends Service implements SensorEventListener {
 //    AsyncTask
 //    Handler
 
-    private static  final String BROADCAST_ACTION_DATA="com.youyouza.updateUI.data";
-    private static  final String BROADCAST_ACTION_PEDEMETER="com.youyouza.updateUI.pedemeter";
-    private static final String stringExtraCalc="data";
-    private static final String stringExtraPedemeter="Pedemeter";
+    private static final String BROADCAST_ACTION_DATA = "com.youyouza.updateUI.data";
+    private static final String BROADCAST_ACTION_PEDEMETER = "com.youyouza.updateUI.pedemeter";
+    private static final String stringExtraCalc = "data";
+    private static final String stringExtraPedemeter = "Pedemeter";
 
 
-    private  static final int CalAmount=32;
+    private static final int CalAmount = 32;
 
-    private static final int calTimes=8;
+    private static final int calTimes = 8;
 
-    private static final int between=8;
+    private static final int between = 8;
 
-    private long count=0L;
-    private double valueArray[]=new double[CalAmount*2];
+    private long count = 0L;
+    private double valueArray[] = new double[CalAmount * 2];
 
-    private int index=0;
+    private int index = 0;
 
-    private double beforeAccle=0.0;
-
-
-
-    private String TAG="in the PedometerService";
+    private double beforeAccle = 0.0;
 
 
+    private String TAG = "in the PedometerService";
 
 
     //add some var  help cal
 
-    private static final double pinghRate=0.45;
+    private static final double pinghRate = 0.45;
 
 
-    private static final int avgNumber=4;
+    private static final int avgNumber = 4;
 
-    double xDirec[]=new double[avgNumber];
-    double yDirec[]=new double[avgNumber];
-    double zDirec[]=new double[avgNumber];
+    double xDirec[] = new double[avgNumber];
+    double yDirec[] = new double[avgNumber];
+    double zDirec[] = new double[avgNumber];
 
-    boolean isFull=false;
+    boolean isFull = false;
 
-    int DirecIndex=0;
+    int DirecIndex = 0;
 
-    double sumXDirec=0.0;
-    double sumYDirec=0.0;
-    double sumZDirec=0.0;
-
-
+    double sumXDirec = 0.0;
+    double sumYDirec = 0.0;
+    double sumZDirec = 0.0;
 
 
-
-
-
-
-//add element to array
-    private void addOfDirec(double x,double y,double z){
+    //add element to array
+    private void addOfDirec(double x, double y, double z) {
 
         ridOfSum();
         setOfDirec(xDirec, DirecIndex, x);
-        setOfDirec(yDirec,DirecIndex,y);
+        setOfDirec(yDirec, DirecIndex, y);
         setOfDirec(zDirec, DirecIndex, z);
         sumOfDirec();
 
         DirecIndex++;
 
-        if(DirecIndex==avgNumber) isFull=true;
+        if (DirecIndex == avgNumber) isFull = true;
 
-        DirecIndex=DirecIndex%avgNumber;
+        DirecIndex = DirecIndex % avgNumber;
 
 
     }
 
 //    set the index element of array
 
-    private void setOfDirec(double Direc[],int index,double value){
-        Direc[index]=value;
+    private void setOfDirec(double Direc[], int index, double value) {
+        Direc[index] = value;
     }
 
 
 //    to rid of before element from sum
 
-    private void ridOfSum(){
+    private void ridOfSum() {
 
-        if(isFull) {
+        if (isFull) {
             sumXDirec -= xDirec[DirecIndex];
             sumYDirec -= yDirec[DirecIndex];
             sumZDirec -= zDirec[DirecIndex];
@@ -136,43 +126,42 @@ public class PedometerService extends Service implements SensorEventListener {
 
     //add to sum
 
-    private void sumOfDirec(){
+    private void sumOfDirec() {
 
-            sumXDirec+=xDirec[DirecIndex];
-            sumYDirec+=yDirec[DirecIndex];
-            sumZDirec+=zDirec[DirecIndex];
+        sumXDirec += xDirec[DirecIndex];
+        sumYDirec += yDirec[DirecIndex];
+        sumZDirec += zDirec[DirecIndex];
     }
 
 
-    private double pinghua(double valueBefore,double valueNow){
+    private double pinghua(double valueBefore, double valueNow) {
 
-        return valueBefore*(1-pinghRate)+valueNow*pinghRate;
+        return valueBefore * (1 - pinghRate) + valueNow * pinghRate;
 
 
     }
 
 
-    public synchronized  long addCount(){
+    public synchronized long addCount() {
 
-        count=count+1;
+        count = count + 1;
         return count;
 
     }
 
 
-    public  synchronized void moveArray(int length){
+    public synchronized void moveArray(int length) {
 
 
-        if(length==0) length=CalAmount;
+        if (length == 0) length = CalAmount;
 
 
-        for (int i = length; i <CalAmount*2; i++) {
+        for (int i = length; i < CalAmount * 2; i++) {
             valueArray[i - length] = valueArray[i];
         }
 
 
-        index=index-length;
-
+        index = index - length;
 
 
     }
@@ -185,31 +174,28 @@ public class PedometerService extends Service implements SensorEventListener {
 
         Log.i(TAG, "Service onCreate--->");
 
-        sm=(SensorManager) getSystemService(Service.SENSOR_SERVICE);
-		sensor=sm.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+        sm = (SensorManager) getSystemService(Service.SENSOR_SERVICE);
+        sensor = sm.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
 //        sensor=sm.getDefaultSensor(Sensor.TYPE_GRAVITY);
 //        sensor=sm.getDefaultSensor(Sensor.TYPE_LINEAR_ACCELERATION);
 //        sm.registerListener(this, sensor, SensorManager.SENSOR_DELAY_GAME);
         sm.registerListener(this, sensor, SensorManager.SENSOR_DELAY_UI);
-        df=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-
+        df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
 
     }
 
 
-
-
-    public static boolean writeSD(String data,String fileName){
+    public static boolean writeSD(String data, String fileName) {
 
         try {
 
             String state = Environment.getExternalStorageState();
-            if(state.equals(Environment.MEDIA_MOUNTED)){
+            if (state.equals(Environment.MEDIA_MOUNTED)) {
 
                 File ext = Environment.getExternalStorageDirectory();
 
-                FileOutputStream fos = new FileOutputStream(new File(ext,fileName),true);
+                FileOutputStream fos = new FileOutputStream(new File(ext, fileName), true);
 
 
                 fos.write(data.getBytes());
@@ -225,7 +211,6 @@ public class PedometerService extends Service implements SensorEventListener {
             return false;
 
 
-
         } catch (Exception e) {
 
             // TODO Auto-generated catch block
@@ -239,15 +224,12 @@ public class PedometerService extends Service implements SensorEventListener {
     }
 
 
-
-
     @Override
     public void onDestroy() {
 
         sm.unregisterListener(this);
 
         Log.i(TAG, "Service onDestroy--->");
-//        Log.i("stopservice:", "in the PedometerService,service stop");
 
     }
 
@@ -260,161 +242,147 @@ public class PedometerService extends Service implements SensorEventListener {
     @Override
     public void onSensorChanged(SensorEvent event) {
 
-        String  message="";
-        String message1="";
-        double x=event.values[0];
-        double y=event.values[1];
-        double z=event.values[2];
+        String message = "";
+        String message1 = "";
+        double x = event.values[0];
+        double y = event.values[1];
+        double z = event.values[2];
 
-        double gravityOrign=Math.sqrt(x * x + y * y + z * z);
-        message1+=x+"  ";
-        message1+=y+"  ";
-        message1+=z+"  ";
-        message1+=gravityOrign+"  ";
-
-
-        addOfDirec(x,y,z);
-
-        if(!isFull) return;
+        double gravityOrign = Math.sqrt(x * x + y * y + z * z);
+        message1 += x + "  ";
+        message1 += y + "  ";
+        message1 += z + "  ";
+        message1 += gravityOrign + "  ";
 
 
-            x=sumXDirec/avgNumber;
-            y=sumYDirec/avgNumber;
-            z=sumZDirec/avgNumber;
+        addOfDirec(x, y, z);
+
+        if (!isFull) return;
 
 
-        double gravity=Math.sqrt(x*x+y*y+z*z);
-
-        message+=x+"  ";
-        message+=y+"  ";
-        message+=z+"  ";
-        message+=gravity+"  ";
+        x = sumXDirec / avgNumber;
+        y = sumYDirec / avgNumber;
+        z = sumZDirec / avgNumber;
 
 
-        if(beforeAccle>1.0)
+        double gravity = Math.sqrt(x * x + y * y + z * z);
 
-            gravity=pinghua(beforeAccle, gravity);
+        message += x + "  ";
+        message += y + "  ";
+        message += z + "  ";
+        message += gravity + "  ";
+
+
+        if (beforeAccle > 1.0)
+
+            gravity = pinghua(beforeAccle, gravity);
 
         synchronized (this) {
 
             valueArray[index++] = gravity;
-            beforeAccle=gravity;
+            beforeAccle = gravity;
 
         }
 
 //        Log.v("service", "获取到新的更新:" + message);
 
 
-        final double maxXrate=0.0; //保存最大的相似度
-        int Length=0;     //保存此时的更新长度
-        final double maxARate=0.0; //保存此时的标准差
+        final double maxXrate = 0.0; //保存最大的相似度
+        int Length = 0;     //保存此时的更新长度
+        final double maxARate = 0.0; //保存此时的标准差
 
 
-        if(index==CalAmount){
+        if (index == CalAmount) {
 //            Log.i("service", "可以进行一次计算:");
 
 
-  Thread calc=new Thread(){
+            Thread calc = new Thread() {
 
-     @Override
-     public void run() {
+                @Override
+                public void run() {
 
-         double maxXrate=0.3; //保存最大的相似度
-         int Length=0;     //保存此时的更新长度
-         double maxARate=1.0; //保存此时的标准差
-
-
-         for(int start=0;start<=calTimes;start++){
-
-             double sumAvalue=0.0;
-             double sumBvalue=0.0;
-             for(int copyIndex=0;copyIndex<start+between;copyIndex++){
-                 sumAvalue+=valueArray[copyIndex];
-                 sumBvalue+=valueArray[copyIndex+start+between];
-             }
-
-             sumAvalue=sumAvalue/(start+between);
-             sumBvalue=sumBvalue/(start+between);
+                    double maxXrate = 0.3; //保存最大的相似度
+                    int Length = 0;     //保存此时的更新长度
+                    double maxARate = 1.0; //保存此时的标准差
 
 
+                    for (int start = 0; start <= calTimes; start++) {
 
-             double sumTogether=0.0;
-             double rouA=0.0;
-             double rouB=0.0;
+                        double sumAvalue = 0.0;
+                        double sumBvalue = 0.0;
+                        for (int copyIndex = 0; copyIndex < start + between; copyIndex++) {
+                            sumAvalue += valueArray[copyIndex];
+                            sumBvalue += valueArray[copyIndex + start + between];
+                        }
 
-             for(int copyIndex=0;copyIndex<start+between;copyIndex++){
-                 double temp1=valueArray[copyIndex]-sumAvalue;
-                 double temp2=valueArray[copyIndex+start+between]-sumBvalue;
-                 sumTogether=sumTogether+temp1*temp2;
-                 rouA=rouA+temp1*temp1;
-                 rouB=rouB+temp2*temp2;
-             }
+                        sumAvalue = sumAvalue / (start + between);
+                        sumBvalue = sumBvalue / (start + between);
 
-             double tempA=rouA;
-             double tempB=rouB;
 
-             rouA=Math.sqrt(rouA/(start+between));
-             rouB=Math.sqrt(rouB/(start+between));
+                        double sumTogether = 0.0;
+                        double rouA = 0.0;
+                        double rouB = 0.0;
 
-             double Xrate=sumTogether/(rouA*rouB*(start+between));
+                        for (int copyIndex = 0; copyIndex < start + between; copyIndex++) {
+                            double temp1 = valueArray[copyIndex] - sumAvalue;
+                            double temp2 = valueArray[copyIndex + start + between] - sumBvalue;
+                            sumTogether = sumTogether + temp1 * temp2;
+                            rouA = rouA + temp1 * temp1;
+                            rouB = rouB + temp2 * temp2;
+                        }
 
-             if(Xrate>maxXrate){
-                 maxARate=tempA;
-                 Length=start+between;
-                 maxXrate=Xrate;
-             }
+                        double tempA = rouA;
+                        double tempB = rouB;
 
-         }
+                        rouA = Math.sqrt(rouA / (start + between));
+                        rouB = Math.sqrt(rouB / (start + between));
 
-         moveArray(Length);
+                        double Xrate = sumTogether / (rouA * rouB * (start + between));
+
+                        if (Xrate > maxXrate) {
+                            maxARate = tempA;
+                            Length = start + between;
+                            maxXrate = Xrate;
+                        }
+
+                    }
+
+                    moveArray(Length);
 
 //            Log.i("广播发送完成：", "----------------end----------------------");
 
-         long tempcount=count;
+                    long tempcount = count;
 
-         if((maxARate>=3.0)&&(maxXrate>=0.45)){
+                    if ((maxARate >= 3.0) && (maxXrate >= 0.45)) {
 
-             tempcount=addCount();
+                        tempcount = addCount();
 
+                    }
 
-         }
+                    Intent intent = new Intent();
 
-         Intent intent=new Intent();
-
-         intent.setAction(BROADCAST_ACTION_PEDEMETER);
-
-
-         intent.putExtra(stringExtraPedemeter, Length + "\n 此时的标准差是：" + maxARate + " \n 以及相似系数为： " + maxXrate + "  " + "\n"
-                 + tempcount + "\n" + df.format(new Date()));
-
-         sendOrderedBroadcast(intent, null);
+                    intent.setAction(BROADCAST_ACTION_PEDEMETER);
 
 
-     }
+                    intent.putExtra(stringExtraPedemeter, Length + "\n 此时的标准差是：" + maxARate + " \n 以及相似系数为： " + maxXrate + "  " + "\n"
+                            + tempcount + "\n" + df.format(new Date()));
+
+                    sendOrderedBroadcast(intent, null);
+                }
 
 
-  };
+            };
 
             calc.start();
-
-
-
-
-
-
-
-
         }
 
 
+        index = index % (CalAmount * 2);
 
-        index=index%(CalAmount*2);
 
-
-        Thread t=new WriteMessage(message1+message+maxARate+maxXrate+" \n");
+        Thread t = new WriteMessage(message1 + message + maxARate + maxXrate + " \n");
 
         t.start();
-
 
 
     }
@@ -431,41 +399,20 @@ public class PedometerService extends Service implements SensorEventListener {
     }
 
 
-//    class MessageSendThread extends Thread{
-//
-//        private String messageBrocast="";
-//
-//    public MessageSendThread(String messageBrocast){
-//        this.messageBrocast+=messageBrocast;
-//
-//
-//    }
-//        public void run() {
-//            Intent intent=new Intent();
-//
-//            intent.setAction(BROADCAST_ACTION_PEDEMETER);
-//
-//
-//            intent.putExtra(stringExtraPedemeter, messageBrocast);
-//
-//            sendOrderedBroadcast(intent, null);
-//
-//        }
-//
-//
-//    }
 
 
-    class WriteMessage extends Thread{
+    class WriteMessage extends Thread {
 
-        String message="";
-        public WriteMessage(String message){
+        String message = "";
 
-            this.message+=message;
+        public WriteMessage(String message) {
+
+            this.message += message;
         }
-        public void run(){
 
-            writeSD(message,"Data.txt");
+        public void run() {
+
+            writeSD(message, "Data.txt");
 
 
         }
