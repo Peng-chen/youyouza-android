@@ -287,9 +287,9 @@ public class PedometerService extends Service implements SensorEventListener {
 //        Log.v("service", "获取到新的更新:" + message);
 
 
-        final double maxXrate = 0.0; //保存最大的相似度
+        final double maxXrate = 0.5; //保存最大的相似度
         int Length = 0;     //保存此时的更新长度
-        final double maxARate = 0.0; //保存此时的标准差
+        final double maxARate = 1.0; //保存此时的标准差
 
 
         if (index == CalAmount) {
