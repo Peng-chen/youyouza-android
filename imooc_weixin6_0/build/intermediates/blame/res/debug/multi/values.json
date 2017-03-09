@@ -1,0 +1,391 @@
+[
+    {
+        "outputFile": "/home/youyouza/StudioProjects/Pedmeter/imooc_weixin6_0/build/intermediates/res/merged/debug/values/values.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 39,
+                    "endOffset": 90
+                },
+                "from": {
+                    "file": "/home/youyouza/StudioProjects/Pedmeter/imooc_weixin6_0/src/main/res/values/attr.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 109,
+                        "endColumn": 45,
+                        "endOffset": 150
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 3,
+                    "startColumn": 4,
+                    "startOffset": 95,
+                    "endColumn": 42,
+                    "endOffset": 133
+                },
+                "from": {
+                    "file": "/home/youyouza/StudioProjects/Pedmeter/imooc_weixin6_0/src/main/res/values/attr.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 4,
+                        "startOffset": 59,
+                        "endColumn": 48,
+                        "endOffset": 103
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 4,
+                    "startColumn": 4,
+                    "startOffset": 138,
+                    "endColumn": 39,
+                    "endOffset": 173
+                },
+                "from": {
+                    "file": "/home/youyouza/StudioProjects/Pedmeter/imooc_weixin6_0/src/main/res/values/attr.xml",
+                    "position": {
+                        "startLine": 5,
+                        "startColumn": 4,
+                        "startOffset": 156,
+                        "endColumn": 45,
+                        "endOffset": 197
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 5,
+                    "startColumn": 4,
+                    "startOffset": 178,
+                    "endColumn": 47,
+                    "endOffset": 221
+                },
+                "from": {
+                    "file": "/home/youyouza/StudioProjects/Pedmeter/imooc_weixin6_0/src/main/res/values/attr.xml",
+                    "position": {
+                        "startLine": 6,
+                        "startColumn": 4,
+                        "startOffset": 203,
+                        "endColumn": 53,
+                        "endOffset": 252
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 14,
+                    "startColumn": 4,
+                    "startOffset": 3456,
+                    "endColumn": 57,
+                    "endOffset": 3509
+                },
+                "from": {
+                    "file": "/home/youyouza/StudioProjects/Pedmeter/imooc_weixin6_0/src/main/res/values/dimens.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 4,
+                        "startOffset": 92,
+                        "endColumn": 57,
+                        "endOffset": 145
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 15,
+                    "startColumn": 4,
+                    "startOffset": 3514,
+                    "endColumn": 55,
+                    "endOffset": 3565
+                },
+                "from": {
+                    "file": "/home/youyouza/StudioProjects/Pedmeter/imooc_weixin6_0/src/main/res/values/dimens.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 151,
+                        "endColumn": 55,
+                        "endOffset": 202
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 16,
+                    "startColumn": 4,
+                    "startOffset": 3570,
+                    "endColumn": 38,
+                    "endOffset": 3604
+                },
+                "from": {
+                    "file": "/home/youyouza/StudioProjects/Pedmeter/imooc_weixin6_0/src/main/res/values/strings.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 57,
+                        "endColumn": 38,
+                        "endOffset": 91
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 17,
+                    "startColumn": 4,
+                    "startOffset": 3609,
+                    "endColumn": 41,
+                    "endOffset": 3646
+                },
+                "from": {
+                    "file": "/home/youyouza/StudioProjects/Pedmeter/imooc_weixin6_0/src/main/res/values/strings.xml",
+                    "position": {
+                        "startLine": 9,
+                        "startColumn": 4,
+                        "startOffset": 220,
+                        "endColumn": 41,
+                        "endOffset": 257
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 18,
+                    "startColumn": 4,
+                    "startOffset": 3651,
+                    "endColumn": 44,
+                    "endOffset": 3691
+                },
+                "from": {
+                    "file": "/home/youyouza/StudioProjects/Pedmeter/imooc_weixin6_0/src/main/res/values/strings.xml",
+                    "position": {
+                        "startLine": 8,
+                        "startColumn": 4,
+                        "startOffset": 175,
+                        "endColumn": 44,
+                        "endOffset": 215
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 19,
+                    "startColumn": 4,
+                    "startOffset": 3696,
+                    "endColumn": 39,
+                    "endOffset": 3731
+                },
+                "from": {
+                    "file": "/home/youyouza/StudioProjects/Pedmeter/imooc_weixin6_0/src/main/res/values/strings.xml",
+                    "position": {
+                        "startLine": 7,
+                        "startColumn": 4,
+                        "startOffset": 135,
+                        "endColumn": 39,
+                        "endOffset": 170
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 20,
+                    "startColumn": 4,
+                    "startOffset": 3736,
+                    "endColumn": 37,
+                    "endOffset": 3769
+                },
+                "from": {
+                    "file": "/home/youyouza/StudioProjects/Pedmeter/imooc_weixin6_0/src/main/res/values/strings.xml",
+                    "position": {
+                        "startLine": 5,
+                        "startColumn": 4,
+                        "startOffset": 96,
+                        "endColumn": 37,
+                        "endOffset": 129
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 21,
+                    "startColumn": 4,
+                    "startOffset": 3774,
+                    "endColumn": 47,
+                    "endOffset": 3817
+                },
+                "from": {
+                    "file": "/home/youyouza/StudioProjects/Pedmeter/imooc_weixin6_0/src/main/res/values/strings.xml",
+                    "position": {
+                        "startLine": 12,
+                        "startColumn": 4,
+                        "startOffset": 358,
+                        "endColumn": 47,
+                        "endOffset": 401
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 22,
+                    "startColumn": 4,
+                    "startOffset": 3822,
+                    "endColumn": 46,
+                    "endOffset": 3864
+                },
+                "from": {
+                    "file": "/home/youyouza/StudioProjects/Pedmeter/imooc_weixin6_0/src/main/res/values/strings.xml",
+                    "position": {
+                        "startLine": 11,
+                        "startColumn": 4,
+                        "startOffset": 311,
+                        "endColumn": 46,
+                        "endOffset": 353
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 23,
+                    "startColumn": 4,
+                    "startOffset": 3869,
+                    "endColumn": 48,
+                    "endOffset": 3913
+                },
+                "from": {
+                    "file": "/home/youyouza/StudioProjects/Pedmeter/imooc_weixin6_0/src/main/res/values/strings.xml",
+                    "position": {
+                        "startLine": 10,
+                        "startColumn": 4,
+                        "startOffset": 262,
+                        "endColumn": 48,
+                        "endOffset": 306
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 24,
+                    "startColumn": 4,
+                    "startOffset": 3918,
+                    "endColumn": 41,
+                    "endOffset": 3955
+                },
+                "from": {
+                    "file": "/home/youyouza/StudioProjects/Pedmeter/imooc_weixin6_0/src/main/res/values/strings.xml",
+                    "position": {
+                        "startLine": 13,
+                        "startColumn": 4,
+                        "startOffset": 406,
+                        "endColumn": 41,
+                        "endOffset": 443
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 25,
+                    "startColumn": 4,
+                    "startOffset": 3960,
+                    "endColumn": 43,
+                    "endOffset": 3999
+                },
+                "from": {
+                    "file": "/home/youyouza/StudioProjects/Pedmeter/imooc_weixin6_0/src/main/res/values/strings.xml",
+                    "position": {
+                        "startLine": 14,
+                        "startColumn": 4,
+                        "startOffset": 448,
+                        "endColumn": 43,
+                        "endOffset": 487
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 26,
+                    "startColumn": 4,
+                    "startOffset": 4004,
+                    "endColumn": 40,
+                    "endOffset": 4040
+                },
+                "from": {
+                    "file": "/home/youyouza/StudioProjects/Pedmeter/imooc_weixin6_0/src/main/res/values/strings.xml",
+                    "position": {
+                        "startLine": 15,
+                        "startColumn": 4,
+                        "startOffset": 492,
+                        "endColumn": 40,
+                        "endOffset": 528
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 27,
+                    "startColumn": 4,
+                    "startOffset": 4045,
+                    "endColumn": 36,
+                    "endOffset": 4077
+                },
+                "from": {
+                    "file": "/home/youyouza/StudioProjects/Pedmeter/imooc_weixin6_0/src/main/res/values/strings.xml",
+                    "position": {
+                        "startLine": 16,
+                        "startColumn": 4,
+                        "startOffset": 533,
+                        "endColumn": 36,
+                        "endOffset": 565
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 28,
+                    "startColumn": 4,
+                    "startOffset": 4082,
+                    "endLine": 34,
+                    "endColumn": 12,
+                    "endOffset": 4368
+                },
+                "from": {
+                    "file": "/home/youyouza/StudioProjects/Pedmeter/imooc_weixin6_0/src/main/res/values/styles.xml",
+                    "position": {
+                        "startLine": 6,
+                        "startColumn": 4,
+                        "startOffset": 191,
+                        "endLine": 12,
+                        "endColumn": 12,
+                        "endOffset": 481
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 35,
+                    "startColumn": 4,
+                    "startOffset": 4373,
+                    "endLine": 37,
+                    "endColumn": 12,
+                    "endOffset": 4528
+                },
+                "from": {
+                    "file": "/home/youyouza/StudioProjects/Pedmeter/imooc_weixin6_0/src/main/res/values/styles.xml",
+                    "position": {
+                        "startLine": 15,
+                        "startColumn": 4,
+                        "startOffset": 522,
+                        "endLine": 17,
+                        "endColumn": 12,
+                        "endOffset": 679
+                    }
+                }
+            }
+        ]
+    }
+]

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr format="color" name="color"/>
+    <attr format="reference" name="icon"/>
+    <attr format="string" name="text"/>
+    <attr format="dimension" name="text_size"/>
+    <declare-styleable name="BarChart"/>
+    <declare-styleable name="BaseBarChart"><attr format="boolean" name="egShowValues"/><attr format="dimension" name="egBarWidth"/><attr format="dimension" name="egBarMargin"/><attr format="boolean" name="egFixedBarWidth"/><attr format="boolean" name="egEnableScroll"/><attr format="integer" name="egVisibleBars"/></declare-styleable>
+    <declare-styleable name="BaseChart"><attr format="integer" name="egAnimationTime"/><attr format="color" name="egLegendColor"/><attr format="dimension" name="egLegendHeight"/><attr format="dimension" name="egLegendTextSize"/><attr format="boolean" name="egShowDecimal"/><attr format="string" name="egEmptyDataText"/></declare-styleable>
+    <declare-styleable name="ChangeColorIconWithText"><attr name="icon"/><attr name="color"/><attr name="text"/><attr name="text_size"/></declare-styleable>
+    <declare-styleable name="PieChart"><attr format="float" name="egInnerPadding"/><attr format="float" name="egInnerPaddingOutline"/><attr format="boolean" name="egUseInnerPadding"/><attr format="float" name="egHighlightStrength"/><attr format="boolean" name="egUsePieRotation"/><attr format="boolean" name="egAutoCenter"/><attr format="boolean" name="egDrawValueInPie"/><attr format="dimension" name="egValueTextSize"/><attr format="color" name="egValueTextColor"/><attr format="boolean" name="egUseCustomInnerValue"/><attr format="boolean" name="egOpenClockwise"/><attr format="color" name="egInnerPaddingColor"/><attr format="string" name="egInnerValueUnit"/></declare-styleable>
+    <declare-styleable name="StackedBarChart"><attr format="dimension" name="egBarTextSize"/><attr format="boolean" name="egShowSeparators"/><attr format="dimension" name="egSeparatorWidth"/></declare-styleable>
+    <declare-styleable name="ValueLineChart"><attr format="float" name="egCurveSmoothness"/><attr format="boolean" name="egUseCubic"/><attr format="boolean" name="egUseOverlapFill"/><attr format="dimension" name="egLineStroke"/><attr format="boolean" name="egShowValueIndicator"/><attr format="dimension" name="egIndicatorWidth"/><attr format="color" name="egIndicatorLineColor"/><attr format="color" name="egIndicatorTextColor"/><attr format="dimension" name="egIndicatorTextSize"/><attr format="dimension" name="egIndicatorLeftPadding"/><attr format="dimension" name="egIndicatorTopPadding"/><attr format="boolean" name="egShowStandardValue"/><attr format="dimension" name="egXAxisStroke"/><attr format="boolean" name="egActivateIndicatorShadow"/><attr format="dimension" name="egIndicatorShadowStrength"/><attr format="color" name="egIndicatorShadowColor"/><attr format="string" name="egIndicatorTextUnit"/><attr format="boolean" name="egShowLegendBeneathIndicator"/><attr format="boolean" name="egUseDynamicScaling"/><attr format="float" name="egScalingFactor"/><attr format="float" name="egMaxXZoom"/><attr format="float" name="egMaxYZoom"/></declare-styleable>
+    <declare-styleable name="VerticalBarChart"><attr format="boolean" name="egUseMaximumValue"/><attr format="float" name="egMaximumValue"/><attr format="string" name="egValueUnit"/><attr format="boolean" name="egShowBarLabel"/><attr format="color" name="egBarLabelColor"/></declare-styleable>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <string name="aboutMe">关于</string>
+    <string name="action_add">添加</string>
+    <string name="action_search">查找</string>
+    <string name="app_name">微信</string>
+    <string name="donate">打赏</string>
+    <string name="menu_addfriend">添加朋友</string>
+    <string name="menu_feedback">意见反馈</string>
+    <string name="menu_group_chat">发起群聊</string>
+    <string name="menu_scan">扫一扫</string>
+    <string name="tab_contact">通讯录</string>
+    <string name="tab_found">发现</string>
+    <string name="tab_me">我</string>
+    <style name="AppBaseTheme" parent="android:Theme.Light">
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        -->
+    </style>
+    <style name="AppTheme" parent="AppBaseTheme">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
+</resources>

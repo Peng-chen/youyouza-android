@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <org.eazegraph.lib.charts.PieChart
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/piechart"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:padding="8dp"
+        app:egLegendTextSize="18sp"
+        app:egUsePieRotation="true"
+        app:egValueTextSize="36sp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+
+        >
+
+        <android.support.design.widget.FloatingActionButton
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/fabNow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:backgroundTint="#4CAF50"
+            app:rippleColor="#33728dff"
+            android:layout_gravity="center"
+            app:fabSize="mini"
+            app:elevation="6dp"
+            android:src="@drawable/stop_200" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="40dp"
+
+            >
+            <!--android:layout_gravity="bottom"-->
+            <!--android:paddingTop="20pt"-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:text="@string/totalStep"
+                android:textSize="20dp"
+                android:paddingRight="5dp"/>
+            <!--android:padding="20dp"-->
+        <org.eazegraph.lib.charts.VerticalBarChart
+            android:id="@+id/verbarchart"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            app:egBarWidth="20dp"
+            app:egLegendHeight="0dp"
+            app:egShowValues="true"
+            app:egFixedBarWidth="true"
+            app:egShowBarLabel="true"
+            app:egLegendColor="#FFFFFF"/>
+        </LinearLayout>
+
+        <!---->
+        <!--app:egEnableScroll="true"-->
+
+        <!--<Button-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:gravity="center_horizontal"-->
+            <!--android:id="@+id/startBtn"-->
+            <!--android:text="@string/startBtn"/>-->
+        <!--<Button-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:gravity="center_horizontal"-->
+            <!--android:id="@+id/stopBtn"-->
+            <!--android:text="@string/stopBtn"/>-->
+
+    </LinearLayout>
+
+
+
+    <android.support.design.widget.FloatingActionButton
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/fabFresh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:backgroundTint="#4CAF50"
+        app:rippleColor="#33728dff"
+        android:layout_gravity="right"
+        app:fabSize="mini"
+        app:elevation="6dp"
+        android:src="@android:drawable/ic_popup_sync" />
+
+
+
+</LinearLayout>

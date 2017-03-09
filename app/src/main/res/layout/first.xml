@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <org.eazegraph.lib.charts.PieChart
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/piechart11"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:padding="8dp"
+        app:egLegendTextSize="18sp"
+        app:egUsePieRotation="true"
+        app:egValueTextSize="36sp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+
+        >
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:id="@+id/startBtn1"
+            android:text="@string/startBtn"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:id="@+id/stopBtn1"
+            android:text="@string/stopBtn"/>
+
+    </LinearLayout>
+
+
+
+
+
+</LinearLayout>

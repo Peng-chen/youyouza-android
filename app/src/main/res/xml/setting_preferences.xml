@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- 设置的类别 -->
+    <!--<PreferenceCategory
+        android:key="mylocation"
+        android:summary="我的位置"
+        android:title="我的位置源">
+        <CheckBoxPreference
+            android:key="wireless_network"
+            android:summary="使用无线网络查看应用程序中的位置"
+            android:title="使用无线网络"/>
+    </PreferenceCategory>-->
+
+    <PreferenceCategory android:key="cleanData"
+        android:title="@string/cleanData"
+        android:summary="@string/cleanData"
+        >
+        <Preference android:key="cleanData_oneMonth"
+            android:title="@string/cleanData_oneMonth">
+            <!--android:summary="@string/cleanData_oneMonth">-->
+        </Preference>
+
+        <Preference android:key="cleanData_threeMoth"
+            android:title="@string/cleanData_threeMonth">
+            <!--android:summary="@string/cleanData_threeMonth">-->
+        </Preference>
+
+        <Preference android:key="cleanData_sixMonth"
+            android:title="@string/cleanData_sixMonth">
+            <!--android:summary="@string/cleanData_sixMonth">-->
+        </Preference>
+        <Preference android:key="cleanData_total"
+            android:title="@string/cleanData_total">
+            <!--android:summary="@string/cleanData_total">-->
+        </Preference>
+            <!--android:summary="@string/cleanData_total">-->
+
+    </PreferenceCategory>
+
+
+    <PreferenceCategory android:key="systemSetting"
+        android:title="@string/systemSetting_name"
+        android:summary="@string/systemSetting_name">
+        <SwitchPreference
+            android:key="systemSetting_start"
+            android:title="@string/systemSetting_start"
+            android:summaryOn="@string/systemSetting_start_on"
+            android:summaryOff="@string/systemSetting_start_off"
+            android:defaultValue="false"
+
+            />
+
+
+
+    </PreferenceCategory>
+
+    <!--<PreferenceCategory-->
+        <!--android:key="mymsg"-->
+        <!--android:summary="个人信息"-->
+        <!--android:title="个人信息">-->
+        <!--<EditTextPreference-->
+            <!--android:key="myname"-->
+            <!--android:title="请输入名字"-->
+            <!--android:summary="姓名"/>-->
+        <!--<EditTextPreference-->
+            <!--android:key="myTall"-->
+            <!--android:inputType="numberDecimal"-->
+            <!--android:title="身高（cm）"-->
+            <!--android:summary="10"/>-->
+        <!--<EditTextPreference-->
+            <!--android:key="myWeight"-->
+            <!--android:inputType="numberDecimal"-->
+            <!--android:title="体重（kg）"-->
+            <!--android:summary="40"/>-->
+        <!--<ListPreference-->
+            <!--android:key="gender"-->
+            <!--android:title="性别"-->
+            <!--android:summary="选择您的性别"-->
+            <!--android:dialogTitle="性别"-->
+            <!--android:entries="@array/gender_name_list"-->
+            <!--android:entryValues="@array/gender_value_list"/>-->
+        <!--<EditTextPreference-->
+            <!--android:key="myLegLength"-->
+            <!--android:inputType="numberDecimal"-->
+            <!--android:title="步长（cm）"-->
+            <!--android:summary="40"/>-->
+    <!--</PreferenceCategory>-->
+
+</PreferenceScreen>

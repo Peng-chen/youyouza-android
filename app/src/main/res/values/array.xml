@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="aboutMe">
+
+        <item>""</item>
+        <item>@string/DevelopProductManager</item>
+        <!--<item>@string/PM</item>-->
+
+        <item>""</item>
+        <item>@string/DevelopName</item>
+        <item>""</item>
+        <!--<item>@string/DevelopName_answer</item>-->
+        <item>@string/DevelopEmail</item>
+        <item>""</item>
+        <!--<item>@string/DevelopEmail_answer</item>-->
+
+        <item>@string/DevelopAnnounce</item>
+        <!--<item>@string/DevelopAnnounce_answer</item>-->
+        <item>""</item>
+    </string-array>
+
+    <string-array name="Donate">
+        <item>""</item>
+        <item>@string/DevelopName</item>
+        <item>""</item>
+        <!--<item>@string/DevelopName_answer</item>-->
+        <item>@string/DevelopEmail</item>
+        <item>""</item>
+        <!--<item>@string/DevelopEmail_answer</item>-->
+        <item>@string/DevelopAnnounce</item>
+        <item>""</item>
+        <!--<item>@string/DevelopAnnounce_answer</item>-->
+        <item>@string/DevelopDonate</item>
+        <!--<item>@string/DevelopDonate_answer</item>-->
+
+        <item>""</item>
+    </string-array>
+
+
+</resources>

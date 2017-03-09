@@ -1,0 +1,22 @@
+[
+    {
+        "merged": "/home/youyouza/StudioProjects/Pedmeter/imooc_weixin6_0/build/intermediates/res/merged/debug/drawable-hdpi-v4/tab_weixin_normal.png",
+        "source": "/home/youyouza/StudioProjects/Pedmeter/imooc_weixin6_0/src/main/res/drawable-hdpi/tab_weixin_normal.png"
+    },
+    {
+        "merged": "/home/youyouza/StudioProjects/Pedmeter/imooc_weixin6_0/build/intermediates/res/merged/debug/drawable-hdpi-v4/tab_find_frd_normal.png",
+        "source": "/home/youyouza/StudioProjects/Pedmeter/imooc_weixin6_0/src/main/res/drawable-hdpi/tab_find_frd_normal.png"
+    },
+    {
+        "merged": "/home/youyouza/StudioProjects/Pedmeter/imooc_weixin6_0/build/intermediates/res/merged/debug/drawable-hdpi-v4/ic_launcher.png",
+        "source": "/home/youyouza/StudioProjects/Pedmeter/imooc_weixin6_0/src/main/res/drawable-hdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/home/youyouza/StudioProjects/Pedmeter/imooc_weixin6_0/build/intermediates/res/merged/debug/drawable-hdpi-v4/tab_address_normal.png",
+        "source": "/home/youyouza/StudioProjects/Pedmeter/imooc_weixin6_0/src/main/res/drawable-hdpi/tab_address_normal.png"
+    },
+    {
+        "merged": "/home/youyouza/StudioProjects/Pedmeter/imooc_weixin6_0/build/intermediates/res/merged/debug/drawable-hdpi-v4/tab_settings_normal.png",
+        "source": "/home/youyouza/StudioProjects/Pedmeter/imooc_weixin6_0/src/main/res/drawable-hdpi/tab_settings_normal.png"
+    }
+]

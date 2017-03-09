@@ -1,0 +1,30 @@
+[
+    {
+        "merged": "/home/youyouza/StudioProjects/Pedmeter/imooc_weixin6_0/build/intermediates/res/merged/debug/drawable-xxhdpi-v4/menu_group_chat_icon.png",
+        "source": "/home/youyouza/StudioProjects/Pedmeter/imooc_weixin6_0/src/main/res/drawable-xxhdpi/menu_group_chat_icon.png"
+    },
+    {
+        "merged": "/home/youyouza/StudioProjects/Pedmeter/imooc_weixin6_0/build/intermediates/res/merged/debug/drawable-xxhdpi-v4/menu_feedback_icon.png",
+        "source": "/home/youyouza/StudioProjects/Pedmeter/imooc_weixin6_0/src/main/res/drawable-xxhdpi/menu_feedback_icon.png"
+    },
+    {
+        "merged": "/home/youyouza/StudioProjects/Pedmeter/imooc_weixin6_0/build/intermediates/res/merged/debug/drawable-xxhdpi-v4/menu_add_icon.png",
+        "source": "/home/youyouza/StudioProjects/Pedmeter/imooc_weixin6_0/src/main/res/drawable-xxhdpi/menu_add_icon.png"
+    },
+    {
+        "merged": "/home/youyouza/StudioProjects/Pedmeter/imooc_weixin6_0/build/intermediates/res/merged/debug/drawable-xxhdpi-v4/ic_launcher.png",
+        "source": "/home/youyouza/StudioProjects/Pedmeter/imooc_weixin6_0/src/main/res/drawable-xxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/home/youyouza/StudioProjects/Pedmeter/imooc_weixin6_0/build/intermediates/res/merged/debug/drawable-xxhdpi-v4/actionbar_search_icon.png",
+        "source": "/home/youyouza/StudioProjects/Pedmeter/imooc_weixin6_0/src/main/res/drawable-xxhdpi/actionbar_search_icon.png"
+    },
+    {
+        "merged": "/home/youyouza/StudioProjects/Pedmeter/imooc_weixin6_0/build/intermediates/res/merged/debug/drawable-xxhdpi-v4/actionbar_add_icon.png",
+        "source": "/home/youyouza/StudioProjects/Pedmeter/imooc_weixin6_0/src/main/res/drawable-xxhdpi/actionbar_add_icon.png"
+    },
+    {
+        "merged": "/home/youyouza/StudioProjects/Pedmeter/imooc_weixin6_0/build/intermediates/res/merged/debug/drawable-xxhdpi-v4/men_scan_icon.png",
+        "source": "/home/youyouza/StudioProjects/Pedmeter/imooc_weixin6_0/src/main/res/drawable-xxhdpi/men_scan_icon.png"
+    }
+]

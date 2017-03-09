@@ -1,0 +1,22 @@
+[
+    {
+        "merged": "/home/youyouza/StudioProjects/Pedmeter/imooc_weixin6_0/build/intermediates/res/merged/debug/layout/four.xml",
+        "source": "/home/youyouza/StudioProjects/Pedmeter/imooc_weixin6_0/src/main/res/layout/four.xml"
+    },
+    {
+        "merged": "/home/youyouza/StudioProjects/Pedmeter/imooc_weixin6_0/build/intermediates/res/merged/debug/layout/second.xml",
+        "source": "/home/youyouza/StudioProjects/Pedmeter/imooc_weixin6_0/src/main/res/layout/second.xml"
+    },
+    {
+        "merged": "/home/youyouza/StudioProjects/Pedmeter/imooc_weixin6_0/build/intermediates/res/merged/debug/layout/activity_main.xml",
+        "source": "/home/youyouza/StudioProjects/Pedmeter/imooc_weixin6_0/src/main/res/layout/activity_main.xml"
+    },
+    {
+        "merged": "/home/youyouza/StudioProjects/Pedmeter/imooc_weixin6_0/build/intermediates/res/merged/debug/layout/first.xml",
+        "source": "/home/youyouza/StudioProjects/Pedmeter/imooc_weixin6_0/src/main/res/layout/first.xml"
+    },
+    {
+        "merged": "/home/youyouza/StudioProjects/Pedmeter/imooc_weixin6_0/build/intermediates/res/merged/debug/layout/third.xml",
+        "source": "/home/youyouza/StudioProjects/Pedmeter/imooc_weixin6_0/src/main/res/layout/third.xml"
+    }
+]

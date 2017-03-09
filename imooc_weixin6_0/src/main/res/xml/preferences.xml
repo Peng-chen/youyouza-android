@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- 设置的类别 -->
+    <PreferenceCategory
+        android:key="mylocation"
+        android:summary="我的位置"
+        android:title="我的位置源">
+        <CheckBoxPreference
+            android:key="wireless_network"
+            android:summary="使用无线网络查看应用程序中的位置"
+            android:title="使用无线网络"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="mymsg"
+        android:summary="个人信息"
+        android:title="个人信息">
+        <EditTextPreference
+            android:key="myname"
+            android:title="请输入真实姓名"
+            android:summary="姓名"/>
+        <EditTextPreference
+            android:key="myTall"
+            android:inputType="number"
+            android:title="身高（cm）"
+            android:summary="10"/>
+        <EditTextPreference
+            android:key="myWeight"
+            android:inputType="numberDecimal"
+            android:title="体重（kg）"
+            android:summary="40"/>
+    </PreferenceCategory>
+
+</PreferenceScreen>
