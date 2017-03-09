@@ -1,35 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    >
 
     <group android:checkableBehavior="single">
+        <item android:title="show">
+            <menu>
         <item
-            android:id="@+id/nav_camera"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="Import" />
+            android:id="@+id/historyStep"
+            android:title="@string/historyStep"
+            android:icon="@drawable/chart1"
+            />
+            <!--android:icon="@drawable/ic_menu_camera"-->
         <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="Gallery" />
+            android:id="@+id/historyDistance"
+            android:title="@string/historyDistance"
+            android:icon="@drawable/chart2"/>
+            <!--android:icon="@drawable/ic_menu_gallery"-->
+
         <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="Slideshow" />
-        <item
-            android:id="@+id/nav_manage"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="Tools" />
+            android:id="@+id/historyCalorie"
+            android:title="@string/historyCalorie"
+            android:icon="@drawable/chart3"/>
+            <!--android:icon="@drawable/ic_menu_slideshow"-->
+
+
+            <!--android:icon="@drawable/ic_menu_manage"-->
+            </menu>
+        </item>
+
     </group>
 
-    <item android:title="Communicate">
+
+    <item android:title="setting">
         <menu>
             <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="Share" />
+                android:id="@+id/setting"
+                android:title="@string/setting"
+                android:icon="@drawable/setting_icon"/>
+
+        </menu>
+
+    </item>
+
+    <item android:title="about">
+        <menu>
             <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
-                android:title="Send" />
+                android:id="@+id/donate"
+                android:title="@string/donate"
+                android:icon="@drawable/donate"/>
+                <!--android:icon="@drawable/ic_menu_share"-->
+
+            <item
+                android:id="@+id/aboutMe"
+                android:title="@string/aboutMe"
+                android:icon="@drawable/aboutme"/>
+                <!--android:icon="@drawable/ic_menu_send"-->
+
         </menu>
     </item>
 

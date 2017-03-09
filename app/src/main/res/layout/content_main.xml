@@ -13,31 +13,77 @@
     tools:showIn="@layout/app_bar_main">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:layout_height="match_parent"
+        android:gravity="center"
         >
-    <TextView
-        android:id="@+id/showMessageTev"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!" />
 
-        <TextView
-            android:id="@+id/showPedmeterTev"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Hello World!" />
-
-    <Button
+    <android.support.v4.view.ViewPager
+        android:id="@+id/id_viewpager"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/startBtn"
-        android:text="@string/startBtn"/>
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/stopBtn"
-        android:text="@string/stopBtn"/>
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center_vertical">
+    </android.support.v4.view.ViewPager>
 
     </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:background="@drawable/tab_bg"
+
+            android:layout_gravity="bottom|end"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="0dp"
+            android:orientation="horizontal" >
+           <!--
+            android:layout_marginBottom="100dp"-->
+
+
+            <com.youyouza.Draw.ChangeColorIconWithText
+                android:id="@+id/id_indicator_one"
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:padding="5dp"
+                app:icon="@drawable/step_64"
+                app:text="@string/app_name"
+                app:text_size="12sp"
+                app:color="#ff45c01a" />
+
+            <com.youyouza.Draw.ChangeColorIconWithText
+                android:id="@+id/id_indicator_two"
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:padding="5dp"
+                app:icon="@drawable/analysis_64"
+                app:text="@string/tab_contact"
+                app:text_size="12sp"
+                app:color="#ff45c01a" />
+
+            <!--<com.youyouza.Draw.ChangeColorIconWithText-->
+                <!--android:id="@+id/id_indicator_three"-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_height="fill_parent"-->
+                <!--android:layout_weight="1"-->
+                <!--android:padding="5dp"-->
+                <!--app:icon="@drawable/ic_menu_emoticons"-->
+                <!--app:text="@string/tab_found"-->
+                <!--app:text_size="12sp"-->
+                <!--app:color="#ff45c01a" />-->
+
+            <com.youyouza.Draw.ChangeColorIconWithText
+                android:id="@+id/id_indicator_four"
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:padding="5dp"
+                app:icon="@drawable/me_64"
+                app:text="@string/tab_me"
+                app:text_size="12sp"
+                app:color="#ff45c01a" />
+        </LinearLayout>
+
 </RelativeLayout>

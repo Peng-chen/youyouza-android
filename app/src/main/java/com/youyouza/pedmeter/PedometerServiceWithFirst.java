@@ -1,13 +1,17 @@
 package com.youyouza.pedmeter;
 
 import android.app.Service;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Environment;
 import android.os.IBinder;
+import android.os.PowerManager;
 import android.support.annotation.Nullable;
 import android.util.Log;
 
@@ -35,6 +39,28 @@ public class PedometerServiceWithFirst extends Service implements SensorEventLis
     private SensorManager sm;
     private Sensor sensor;
     private SimpleDateFormat df;
+    private PowerManager.WakeLock mWakeLock;
+
+
+
+    public BroadcastReceiver mReceiver = new BroadcastReceiver() {
+
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            // Check action just to be on the safe side.
+            if (intent.getAction().equals(Intent.ACTION_SCREEN_OFF)) {
+//                Log.v("shake mediator screen off","trying re-registration");
+                // Unregisters the listener and registers it again.
+                Log.i(TAG,"detect the SCREEN_OFF------>");
+
+                mWakeLock.acquire();// 屏幕熄后，CPU继续运行
+
+                sm.unregisterListener(PedometerServiceWithFirst.this);
+                sm.registerListener(PedometerServiceWithFirst.this, sensor,
+                        SensorManager.SENSOR_DELAY_UI);
+            }
+        }
+    };
 
 //    AsyncTask
 //    Handler
@@ -167,7 +193,7 @@ public class PedometerServiceWithFirst extends Service implements SensorEventLis
 
 //        Log.i("startservice:", "in the PedometerService,service start");
 
-        Log.i(TAG, "Service onCreate--->");
+        Log.i(TAG, "Service onCreate1--->");
 
         sm = (SensorManager) getSystemService(Service.SENSOR_SERVICE);
         sensor = sm.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
@@ -177,6 +203,10 @@ public class PedometerServiceWithFirst extends Service implements SensorEventLis
         sm.registerListener(this, sensor, SensorManager.SENSOR_DELAY_UI);
         df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
+        PowerManager manager = (PowerManager) getSystemService(Context.POWER_SERVICE);
+        mWakeLock = manager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, TAG);// CPU保存运行
+        IntentFilter filter = new IntentFilter(Intent.ACTION_SCREEN_OFF);
+        registerReceiver(mReceiver, filter);
 
     }
 
@@ -223,7 +253,11 @@ public class PedometerServiceWithFirst extends Service implements SensorEventLis
     public void onDestroy() {
 
         sm.unregisterListener(this);
+        unregisterReceiver(mReceiver);
 
+        mWakeLock.release();
+
+        super.onDestroy();
         Log.i(TAG, "Service onDestroy--->");
 
     }

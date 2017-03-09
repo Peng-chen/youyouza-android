@@ -1,13 +1,81 @@
 <resources>
     <string name="app_name">Pedmeter</string>
-    <string name="app_name1">Pedmeter1</string>
-    <string name="app_name2">Pedmeter2</string>
-    <string name="app_name3">Pedmeter3</string>
+    <string name="app_name1">Pedmeter</string>
+    <string name="app_name2">Pedmeter</string>
+    <string name="app_name3">Pedmeter</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
-    <string name="action_settings">Settings</string>
+    <string name="action_settings">分享到微信</string>
+
+    <!-- strings related to content——main-->
+    <string name="tab_contact">分析</string>
+    <string name="tab_found">嗯嗯</string>
+    <string name="tab_me">我</string>
+
+
+    <!--<string name="step_history_step">总步数</string>-->
+    <!--string related to hide in left-->
+
+    <string name="totalStep">总步数（步）:</string>
+    <string name="totalDistance">总距离（米）:</string>
+    <string name="totalCalories">总卡路里（大卡）:</string>
+
+    <string name="historyStep">步数历史</string>
+    <string name="historyCalorie">热量历史</string>
+    <string name="historyDistance">距离历史</string>
+
+    <string name="setting">设置</string>
+
+    <string name="aboutMe">关于</string>
+    <string name="donate">打赏</string>
+
+
+    <!--<string name="DevelopName">开发者:</string>-->
+    <!--<string name="DevelopName_answer">youyouza</string>-->
+    <!--<string name="DevelopEmail">联系开发者:</string>-->
+    <!--<string name="DevelopEmail_answer">zhuan66yong@163.com</string>-->
+    <!--<string name="DevelopDonate">支持开发者(支付宝):</string>-->
+    <!--<string name="DevelopDonate_answer">zhuan66yong@163.com</string>-->
+    <!--<string name="DevelopAnnounce_answer">本软件最终解释权归youyouza所有</string>-->
+    <!--<string name="DevelopAnnounce">声明:</string>-->
+
+    <!--<string name="DevelopProductManager">产品经理:</string>-->
+    <!--&lt;!&ndash;<string name="PM">youyouza</string>&ndash;&gt;-->
+    <!--<string name="PM">Luo</string>-->
+    <string name="DevelopName">开 发 者:youyouza</string>
+    <string name="DevelopName_answer">youyouza</string>
+    <string name="DevelopEmail">联系开发者:zhuan66yong@163.com</string>
+    <string name="DevelopEmail_answer">zhuan66yong@163.com</string>
+    <string name="DevelopDonate">支持开发者(支付宝):zhuan66yong@163.com</string>
+    <string name="DevelopDonate_answer">zhuan66yong@163.com</string>
+    <string name="DevelopAnnounce_answer">本软件最终解释权归youyouza所有</string>
+    <string name="DevelopAnnounce">声   明:本软件最终解释权归youyouza所有</string>
+
+    <string name="DevelopProductManager">产品经理:Luo</string>
+    <!--<string name="PM">youyouza</string>-->
+    <string name="PM">Luo</string>
+
+
+    <!--string related to setting in hide side-->
+    <string name="cleanData">清除数据</string>
+    <string name="cleanData_oneMonth">清除一个月以前数据</string>
+    <string name="cleanData_threeMonth">清除三个月以前数据</string>
+    <string name="cleanData_sixMonth">清除六个月以前数据</string>
+    <string name="cleanData_total">清除所有以前数据</string>
+
+
+    <string name="systemSetting_name">系统设置</string>
+    <string name="systemSetting_start">是否自启动</string>
+    <string name="systemSetting_start_on">是自启动</string>
+    <string name="systemSetting_start_off">否自启动</string>
+
+
+<!--about history_step-->
+
+    <string name="start">选择起始时间</string>
+    <string name="end">选择终止时间</string>
 
 
 
@@ -79,7 +147,6 @@
     <string name="pref_title_vibrate">Vibrate</string>
 
 
-
     <string name="welcome1">welcome to frist1!</string>
     <string name="welcome2">welcome to frist2!</string>
     <string name="welcome3">welcome to frist3!</string>
@@ -89,11 +156,10 @@
 
     <string name="startBtn">启动服务</string>
     <string name="stopBtn">停止服务</string>
+    <string name="title_activity_donate">DonateActivity</string>
 
-
-
-
-
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
 </resources>
